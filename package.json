@@ -1,0 +1,118 @@
+{
+  "name": "custom-linter",
+  "displayName": "Custom Linter",
+  "description": "A custom linter to check functions length",
+  "version": "0.0.1",
+  "publisher": "leandro-bonn",
+  "engines": {
+    "vscode": "^1.95.3"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onFileSystem:*.c",
+    "onFileSystem:*.cpp",
+    "onFileSystem:*.dart",
+    "onFileSystem:*.py",
+    "onFileSystem:*.java",
+    "onFileSystem:*.kt"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Custom Linter Settings",
+      "properties": {
+        "custom-linter.maxFunctionLines": {
+          "type": "number",
+          "default": 40,
+          "description": "Maximum allowed lines in a function"
+        },
+        "custom-linter.excludeFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "List of folders to exclude from function length checks"
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "c",
+        "extensions": [
+          ".c"
+        ],
+        "aliases": [
+          "C"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "cpp",
+        "extensions": [
+          ".cpp",
+          ".hpp",
+          ".cc",
+          ".cxx"
+        ],
+        "aliases": [
+          "C++",
+          "cpp"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "dart",
+        "extensions": [
+          ".dart"
+        ],
+        "aliases": [
+          "Dart"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "python",
+        "extensions": [
+          ".py"
+        ],
+        "aliases": [
+          "Python"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "java",
+        "extensions": [
+          ".java"
+        ],
+        "aliases": [
+          "Java"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "kotlin",
+        "extensions": [
+          ".kt"
+        ],
+        "aliases": [
+          "Kotlin"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.2",
+    "@types/vscode": "^1.95.3",
+    "typescript": "^4.0.0",
+    "vscode": "^1.1.37"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "watch": "tsc -w"
+  }
+}
