@@ -10,7 +10,7 @@ const DEFAULT_MAX_FUNCTION_LINES = 40;
 const languagePatterns: { [extension: string]: RegExp } = {
     c: /[a-zA-Z_][a-zA-Z0-9_]*\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\)\s*\{[^}]*\}/g,
     cpp: /[a-zA-Z_][a-zA-Z0-9_]*\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\)\s*\{[^}]*\}/g,
-    dart: /\b[a-zA-Z_][a-zA-Z0-9_]*\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\)\s*{\s*[^}]*\}/g,
+    dart: /\b[a-zA-Z_][a-zA-Z0-9_]*\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\([\s\S]*?\)\s*\{[\s\S]*?\}/g,
     python: /def\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\):\s*([^#]*)/g,
     java: /\b(?:public|protected|private|static|final|abstract|synchronized)?\s+\b(?:[a-zA-Z_][a-zA-Z0-9_]*\s+)+[a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\)\s*\{[^}]*\}/g,
     kotlin: /\b(?:fun|private|protected|internal|public)?\s+\b[a-zA-Z_][a-zA-Z0-9_]*\s*\(.*\)\s*:\s*[a-zA-Z_][a-zA-Z0-9_]*\s*\{\s*[^}]*\}/g
